@@ -5,21 +5,29 @@
  * @format
  */
 
+import {NavigationContainer} from '@react-navigation/native'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import React from 'react'
-import {SafeAreaView, StatusBar, Text} from 'react-native'
 
-import {Colors} from 'react-native/Libraries/NewAppScreen'
+import {routes} from './src/screens/routes/routes'
+import {RouteParamsList} from './src/screens/types'
 
+const Stack = createNativeStackNavigator<RouteParamsList>()
 function App(): React.JSX.Element {
-  const backgroundStyle = {
-    backgroundColor: Colors.lighter,
-  }
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={'dark-content'} backgroundColor={Colors.dark} />
-      <Text>Hello</Text>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        {routes.map(route => {
+          return (
+            <Stack.Screen
+              name={route.routeName}
+              component={route.screen}
+              key={route.routeName}
+            />
+          )
+        })}
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
