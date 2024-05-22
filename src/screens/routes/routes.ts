@@ -1,7 +1,6 @@
-export enum ROUTE_NAMES {
-  home = 'home',
-  screen1 = 'screen1',
-  login = 'login',
-}
+export const ROUTE_NAMES = {
+    home: 'home',
+    login: 'login',
+} as const
 
 export type Routes = keyof typeof ROUTE_NAMES

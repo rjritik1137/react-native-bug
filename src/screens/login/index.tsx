@@ -1,8 +1,9 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native'
 import React, {useState} from 'react'
+import {TextInput, View} from 'react-native'
 import Page from '../../components/Page'
+import {ScreenProps} from '../routes/type'
 
-const LoginScreen = () => {
+const LoginScreen: React.FC<ScreenProps<'login'>> = () => {
     const [email, setEmail] = useState('')
     return (
         <Page>
