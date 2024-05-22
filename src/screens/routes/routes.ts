@@ -1,10 +1,7 @@
-import Home from '../home'
-import {ROUTE_NAMES} from './routeName'
+export enum ROUTE_NAMES {
+  home = 'home',
+  screen1 = 'screen1',
+  login = 'login',
+}
 
-const routes: Array<{routeName: ROUTE_NAMES; screen: () => React.ReactNode}> = [
-  {
-    routeName: ROUTE_NAMES.home,
-    screen: Home,
-  },
-]
-export {routes}
+export type Routes = keyof typeof ROUTE_NAMES
